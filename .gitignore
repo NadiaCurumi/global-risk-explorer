@@ -1,0 +1,27 @@
+# venv
+.venv/
+venv/
+
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Data
+data/raw/*.csv
+data/final/*.json
+data/final/*.csv
+data/processed/xgb_model.json
+data/processed/shap_values.csv
+
+# outputs (optional)
+outputs/
+
+# notebooks checkpoints
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+.vscode/

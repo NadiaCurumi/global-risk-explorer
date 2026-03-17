@@ -1,0 +1,41 @@
+{
+  "model_type": "xgboost",
+  "target": "locc",
+  "base_features": [
+    "government_effectiveness",
+    "control_of_corruption",
+    "gdp_per_capita_log",
+    "urban_share",
+    "median_age",
+    "life_expectancy"
+  ],
+  "lag": 1,
+  "lagged_features": [
+    "government_effectiveness_lag1",
+    "control_of_corruption_lag1",
+    "gdp_per_capita_log_lag1",
+    "urban_share_lag1",
+    "median_age_lag1",
+    "life_expectancy_lag1"
+  ],
+  "best_params": {
+    "n_estimators": 300,
+    "max_depth": 6,
+    "learning_rate": 0.03,
+    "subsample": 0.9,
+    "colsample_bytree": 0.8,
+    "min_child_weight": 3,
+    "reg_lambda": 1.0
+  },
+  "n_rows_raw_input": 2057,
+  "n_rows_used_for_training": 1527,
+  "n_countries_raw_input": 187,
+  "n_countries_used_for_training": 157,
+  "year_min_raw_input": 2015,
+  "year_max_raw_input": 2025,
+  "year_min_training": 2016,
+  "year_max_training": 2025,
+  "edge_fill_limit": 2,
+  "input_path": "data\\processed\\lack_of_coping_capacity\\locc_final_historical_feature_set.csv",
+  "best_params_path": "data\\models\\locc_xgboost_best_params.json"
+}

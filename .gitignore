@@ -25,3 +25,9 @@ outputs/
 .DS_Store
 Thumbs.db
 .vscode/
+
+# Office temporary lock files
+~$*.xlsx
+~$*.xls
+~$*.docx
+~$*.doc

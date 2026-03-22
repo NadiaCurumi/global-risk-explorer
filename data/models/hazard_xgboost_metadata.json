@@ -1,0 +1,54 @@
+{
+  "model_type": "xgboost",
+  "target": "hazard",
+  "base_features": [
+    "cdd",
+    "rx1day",
+    "rx5day",
+    "warm_days",
+    "warm_nights",
+    "wsdi",
+    "conflict_probability"
+  ],
+  "direct_features": [
+    "cdd",
+    "rx1day",
+    "rx5day",
+    "warm_days",
+    "warm_nights",
+    "wsdi"
+  ],
+  "lag": 1,
+  "lagged_features": [
+    "conflict_probability_lag1"
+  ],
+  "model_features": [
+    "cdd",
+    "rx1day",
+    "rx5day",
+    "warm_days",
+    "warm_nights",
+    "wsdi",
+    "conflict_probability_lag1"
+  ],
+  "best_params": {
+    "n_estimators": 200,
+    "max_depth": 3,
+    "learning_rate": 0.03,
+    "subsample": 0.8,
+    "colsample_bytree": 1.0,
+    "min_child_weight": 5,
+    "reg_lambda": 5.0
+  },
+  "n_rows_raw_input": 1771,
+  "n_rows_used_for_training": 1176,
+  "n_countries_raw_input": 161,
+  "n_countries_used_for_training": 147,
+  "year_min_raw_input": 2015,
+  "year_max_raw_input": 2025,
+  "year_min_training": 2018,
+  "year_max_training": 2025,
+  "edge_fill_limit": 2,
+  "input_path": "data\\processed\\hazard\\hazard_historical_feature_set.csv",
+  "best_params_path": "data\\models\\hazard_xgboost_best_params.json"
+}

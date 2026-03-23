@@ -4,9 +4,8 @@ from pathlib import Path
 
 import visualization as viz
 
-# Path to the predictions file (same directory as this script)
-_HERE = Path(__file__).parent
-PREDICTIONS_FILE = _HERE / "predictions.csv"
+# Path to the final predictions file
+PREDICTIONS_FILE = "data/predictions/final_inform_risk_calculated_predictions.csv"
 
 # --- CONFIGURATION ---
 st.set_page_config(

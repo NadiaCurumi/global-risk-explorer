@@ -1,5 +1,7 @@
 # Global Risk Explorer – INFORM Risk Prediction
 
+![Dashboard](image.png)
+
 This project predicts future **INFORM Risk** by modeling its three components separately:
 
 - **Hazard & Exposure**

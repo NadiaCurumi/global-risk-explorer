@@ -60,6 +60,11 @@ The scripts should be executed in the following order for each component:
    - Create lagged features  
    - Predict future values  
 
+After generating predictions for all three components, the final INFORM Risk score is computed by running:
+```bash
+python src/compute_risk_index.py
+```
+
 # Dashboard
 The results are visualized using an **interactive dashboard built with Streamlit**. The dashboard allows users to explore:
 

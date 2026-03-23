@@ -25,7 +25,7 @@ HAZARD_PATH      = BASE / "hazard_ssp_predictions.csv"
 LOCC_PATH        = BASE / "locc_ssp_predictions.csv"
 VULN_PATH        = BASE / "vulnerability_ssp_predictions.csv"
 
-OUTPUT_PATH = Path("../Dashboard/predictions.csv")
+OUTPUT_PATH = Path("Dashboard/predictions.csv")
 
 
 # _____COUNTRY REFERENCE_____

@@ -1,33 +1,33 @@
-# Global Risk Explorer – INFORM Risk Prediction
+# 🌍 Global Risk Explorer – INFORM Risk Prediction
 
-![Dashboard](image.png)
+Global governance-related risks are evolving in response to changing socioeconomic conditions. Understanding how these risks develop and what drives them, is essential for anticipating future challenges.
+This project explores how global governance-related risk **(INFORM Risk)** evolves under different **Shared Socioeconomic Pathways (SSPs)** by combining the **INFORM Risk framework** with **future socioeconomic projections**. Instead of treating risk as a black box, the approach models its three core components, Hazard & Exposure, Vulnerability, and Lack of Coping Capacity, using an **XGBoost regression model** to generate scenario-based predictions for countries worldwide.
 
-This project predicts future **INFORM Risk** by modeling its three components separately:
+The results are brought to life in an interactive dashboard, allowing users to explore how risk shifts across **scenarios (SSP1–SSP5), time (2035–2100), and regions**, and to understand the drivers behind these changes.
 
-- **Hazard & Exposure**
-- **Vulnerability**
-- **Lack of Coping Capacity (LoCC)**
+## What is INFORM Risk?
+The INFORM Risk Index is a widely used composite indicator that measures the risk of humanitarian crises and disasters. It is based on three core components:
 
-The final INFORM Risk score is computed from the predicted component values.
+- **Hazard & Exposure** – likelihood of natural hazards and population exposure  
+- **Vulnerability** – susceptibility of populations (e.g., socioeconomic conditions)  
+- **Lack of Coping Capacity (LoCC)** – ability of institutions to manage crises  
 
----
+The overall risk is computed using a geometric aggregation:
 
-## Overview
+> **Risk = (Hazard & Exposure)^(1/3) × (Vulnerability)^(1/3) × (Lack of Coping Capacity)^(1/3)**
 
-Instead of predicting INFORM Risk directly, this project follows the original INFORM logic:
+This ensures equal contribution of all components while preserving their multiplicative relationship. This project follows this structure by modeling each component separately and then combining them into a final risk score.
 
-**historical data + SSP features → predict components → compute INFORM Risk**
+# Project Goal
+The goal is to build a transparent and reproducible pipeline to:
 
-This improves:
-- interpretability
-- model transparency
-- analysis of individual risk drivers
+- Predict future INFORM risk under different SSP scenarios  
+- Understand key drivers of risk across countries  
+- Provide an interactive way to explore results  
 
----
-
-## Modeling Pipeline
-
-Each component is modeled using the same workflow:
+# Modeling Pipeline
+To predict INFORM Risk via its three components (Hazard & Exposure, Vulnerability, Lack of Coping Capacity), each component follows the same structured workflow.
+The scripts should be executed in the following order for each component:
 
 1. **Feature Preparation**  
    - Combine historical data with SSP projections  
@@ -60,48 +60,61 @@ Each component is modeled using the same workflow:
    - Create lagged features  
    - Predict future values  
 
----
+# Dashboard
+The results are visualized using an **interactive dashboard built with Streamlit**. The dashboard allows users to explore:
 
-## Validation Strategy
+- 🌍 Global risk distribution (map view)  
+- 🏳️ Country-level trends  
+- 📊 Regional comparisons  
+- 🔍 Scenario analysis (SSP1, SSP2, SSP3, SSP5)  
+- 📅 Time horizon: **2035–2100**
 
-Two complementary approaches:
+![Dashboard](image-1.png)
 
-- **Temporal validation** → predicts future years  
-- **Spatial validation** → generalizes across countries  
+# Project Structure
+```bash
+global-risk-explorer/
+│
+├── dashboard/              # Streamlit app
+│   ├── app.py
+│   └── visualization.py
+│
+├── data/
+│   ├── raw/                # Raw input datasets
+│   ├── processed/          # Cleaned & feature-engineered data
+│   ├── predictions/        # Model predictions (used by dashboard)
+│   ├── models/             # Saved model artifacts
+│   └── results/            # SHAP outputs / plots
+│
+├── src/
+│   ├── hazard/             # Hazard & Exposure modeling
+│   ├── vulnerability/      # Vulnerability modeling
+│   ├── lack_of_coping_capacity/  # LoCC modeling
+│   └── compute_risk_index.py     # Final risk computation
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
 
-This ensures realistic model performance.
+```
 
----
+# Installation
+Create a virtual environment and install dependencies:
+```
+python -m venv .venv
+.venv\Scripts\activate   # Windows
+# source .venv/bin/activate  # Mac/Linux
 
-## Feature Engineering
+pip install -r requirements.txt
+```
 
-- Uses **lagged features** (predict year *t* using *t-1*)  
-- Handles missing data with **split-safe interpolation** (no data leakage):
-  - linear interpolation  
-  - backward / forward fill (small gaps only)  
+# Running the Dashboard
+From the project root:
+```
+streamlit run dashboard/app.py
+```
+Then open:
+```
+http://localhost:8501
+```
 
----
-
-## Running the Project
-
-For each component, run scripts in this order:
-
-1. `feature_set_test.py`  
-2. `*_utils.py`  
-3. `tune_validate_model.py`  
-4. `train_model.py`  
-5. `explain_model_shap.py`  
-6. `predict_*.py`  
-
-Repeat for:
-- Hazard & Exposure  
-- Vulnerability  
-- LoCC  
-
----
-
-## Final Output
-
-Predicted component values are combined to compute:
-
-**Future INFORM Risk**

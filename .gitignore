@@ -27,6 +27,7 @@ data/results/**
 
 # Keep final predictions
 !data/predictions/
+!data/results/plots/
 
 # Office temporary lock files
 ~$*.xlsx

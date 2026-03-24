@@ -68,10 +68,11 @@ python src/compute_risk_index.py
 # Dashboard
 The results are visualized using an **interactive dashboard built with Streamlit**. The dashboard allows users to explore:
 
-- 🌍 Global risk distribution (map view)  
-- 🏳️ Country-level trends  
-- 📊 Regional comparisons  
-- 🔍 Scenario analysis (SSP1, SSP2, SSP3, SSP5)  
+- 🌍 Global risk distribution by component (map view)
+- 🏳️ Country-level trends
+- 📊 Regional comparisons
+- 🔍 Scenario analysis (SSP1, SSP2, SSP3, SSP5)
+- 📈 Feature importance
 - 📅 Time horizon: **2035–2100**
 
 ![Dashboard](image-1.png)

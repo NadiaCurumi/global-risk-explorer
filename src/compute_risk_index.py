@@ -2,14 +2,15 @@
 Combine hazard, vulnerability, and lack-of-coping-capacity predictions into
 a single INFORM-style risk index.
 
-Formula:
-    risk_pred = (predicted_hazard + predicted_vulnerability + predicted_locc) / 3 / 10
+Formula (geometric aggregation, as per the official INFORM methodology):
+    risk_pred = (predicted_hazard * predicted_vulnerability * predicted_locc)^(1/3) / 10
 
-All three component scores are on the INFORM 0–10 scale, so dividing by 10
-normalises the composite to [0, 1].  Values are clipped to [0, 1] to handle
+All three component scores are on the INFORM 0–10 scale. The geometric mean
+preserves the multiplicative relationship between components, then dividing by 10
+normalises the composite to [0, 1]. Values are clipped to [0, 1] to handle
 any minor model extrapolation outside the training range.
 
-The output is saved to the Dashboard folder with the schema expected by app.py:
+The output is saved to the dashboard folder with the schema expected by app.py:
     iso3, country, region, scenario, year, risk_pred
 """
 
@@ -171,9 +172,9 @@ merged = (
 
 merged["risk_pred"] = (
     merged["predicted_hazard"]
-    + merged["predicted_locc"]
-    + merged["predicted_vulnerability"]
-) / 3.0 / 10.0
+    * merged["predicted_locc"]
+    * merged["predicted_vulnerability"]
+) ** (1 / 3) / 10.0
 
 merged["risk_pred"] = merged["risk_pred"].clip(0.0, 1.0)
 

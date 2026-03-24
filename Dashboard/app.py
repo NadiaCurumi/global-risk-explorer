@@ -91,7 +91,7 @@ def main():
         st.session_state["data_loaded"] = True
 
     all_scenarios = sorted(df["scenario"].unique())
-    all_years     = sorted(df["year"].dropna().unique())
+    all_years     = [2035, 2050, 2100]
 
     st.title("Global Governance Risk Explorer")
     st.caption("SSP scenario projections of INFORM-based governance risk · 2035–2100")

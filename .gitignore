@@ -23,12 +23,13 @@ data/raw/*
 # Ignore all processed files
 data/processed/**
 data/models/**
+# Ignore all results
 data/results/**
-
+# BUT allow plots folder
+!data/results/plots/
+!data/results/plots/**
 # Keep final predictions
 !data/predictions/
-!data/results/plots/
-
 # Office temporary lock files
 ~$*.xlsx
 ~$*.xls

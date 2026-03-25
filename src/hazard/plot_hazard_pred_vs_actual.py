@@ -283,12 +283,12 @@ if __name__ == "__main__":
 
     plot_pred_vs_actual(
         temporal_pred_df,
-        "Predicted vs Actual Hazard Scores (Rolling Temporal Validation)",
+        "Predicted vs Actual Hazard Scores\n(Rolling Temporal Validation)",
         TEMP_PLOT_PATH,
     )
 
     plot_pred_vs_actual(
         spatial_pred_df,
-        "Predicted vs Actual Hazard Scores (Grouped Spatial Validation)",
+        "Predicted vs Actual Hazard Scores\n(Grouped Spatial Validation)",
         SPATIAL_PLOT_PATH,
     )

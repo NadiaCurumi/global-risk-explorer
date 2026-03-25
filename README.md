@@ -14,9 +14,9 @@ The INFORM Risk Index is a widely used composite indicator that measures the ris
 
 The overall risk is computed using a geometric aggregation:
 
-> **Risk = (Hazard & Exposure)^(1/3) × (Vulnerability)^(1/3) × (Lack of Coping Capacity)^(1/3)**
+> **Risk = (Hazard × Vulnerability × LoCC)^(1/3) / 10**
 
-This ensures equal contribution of all components while preserving their multiplicative relationship. This project follows this structure by modeling each component separately and then combining them into a final risk score.
+Each component is predicted on the INFORM 0–10 scale; dividing by 10 normalises the composite score to 0–1. This ensures equal contribution of all three dimensions while preserving their multiplicative relationship — a country can only achieve a low composite score if all three components are simultaneously low. This project follows this structure by modeling each component separately and then combining them into a final risk score.
 
 # Project Goal
 The goal is to build a transparent and reproducible pipeline to:

@@ -26,8 +26,7 @@ The goal is to build a transparent and reproducible pipeline to:
 - Provide an interactive way to explore results  
 
 # Modeling Pipeline
-To predict INFORM Risk via its three components (Hazard & Exposure, Vulnerability, Lack of Coping Capacity), each component follows the same structured workflow.
-The scripts should be executed in the following order for each component:
+To predict INFORM Risk via its three components (Hazard & Exposure, Vulnerability, Lack of Coping Capacity), each component follows the same structured workflow. The steps below describe the pipeline and script order used during development.
 
 1. **Feature Preparation**  
    - Combine historical data with SSP projections  
@@ -59,6 +58,10 @@ The scripts should be executed in the following order for each component:
    - Load trained model + SSP features  
    - Create lagged features  
    - Predict future values  
+
+6. **Evaluation & Visualization (`Plot_*_pred_vs_actual.py`)**
+   - Compare predicted vs. actual values  
+   - Generate evaluation plots 
 
 After generating predictions for all three components, the final INFORM Risk score is computed by running:
 ```bash
@@ -103,9 +106,11 @@ global-risk-explorer/
 └── .gitignore
 
 ```
+## Data & Usage
 The repository does not include raw datasets due to size and reproducibility considerations.
 Instead, it provides all **processed datasets** required to run the modeling pipeline.
-This allows the full modeling pipeline (training, validation, prediction, and risk computation) to be reproduced without requiring raw data preprocessing.
+This allows the full pipeline (training, validation, prediction, and risk computation) to be reproduced without additional preprocessing.  
+Re-running the entire pipeline is not necessary, as the provided outputs and dashboard already allow direct exploration of the results.
 
 # Installation
 Create a virtual environment and install dependencies:

@@ -78,7 +78,7 @@ The results are visualized using an **interactive dashboard built with Streamlit
 - 📈 Feature importance
 - 📅 Time horizon: **2035–2100**
 
-![Dashboard](image-1.png)
+![Dashboard](Dashboard.png)
 
 # Project Structure
 ```bash

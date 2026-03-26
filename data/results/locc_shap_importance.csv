@@ -1,0 +1,7 @@
+feature,mean_abs_shap,model_feature_importance
+median_age_lag1,0.6860883,0.45682925
+government_effectiveness_lag1,0.48620322,0.29579103
+life_expectancy_lag1,0.29261217,0.11907539
+gdp_per_capita_log_lag1,0.2055229,0.07192983
+control_of_corruption_lag1,0.1782367,0.040206384
+urban_share_lag1,0.0645545,0.016168084

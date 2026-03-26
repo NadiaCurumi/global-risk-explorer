@@ -22,14 +22,40 @@ data/raw/*
 
 # Ignore all processed files
 data/processed/**
+# Re-allow processed folders
+!data/processed/
+!data/processed/hazard/
+!data/processed/lack_of_coping_capacity/
+!data/processed/vulnerability/
+
+# Keep only needed processed files
+!data/processed/hazard/hazard_training_final.csv
+!data/processed/hazard/hazard_ssp_features_full.csv
+!data/processed/hazard/hazard_historical_feature_set.csv
+
+!data/processed/lack_of_coping_capacity/locc_training_final.csv
+!data/processed/lack_of_coping_capacity/locc_ssp_features_full.csv
+!data/processed/lack_of_coping_capacity/locc_final_historical_feature_set.csv
+
+!data/processed/vulnerability/vulnerability_training_final.csv
+!data/processed/vulnerability/vulnerability_ssp_full.csv
+!data/processed/vulnerability/vulnerability_panel_with_target_raw_long.csv
+
 data/models/**
+
 # Ignore all results
 data/results/**
+
 # BUT allow plots folder
 !data/results/plots/
 !data/results/plots/**
+
+# Allow ONLY final result CSVs
+!data/results/*validation_summary.csv
+
 # Keep final predictions
 !data/predictions/
+
 # Office temporary lock files
 ~$*.xlsx
 ~$*.xls

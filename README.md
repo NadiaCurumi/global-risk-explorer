@@ -103,6 +103,9 @@ global-risk-explorer/
 └── .gitignore
 
 ```
+The repository does not include raw datasets due to size and reproducibility considerations.
+Instead, it provides all **processed datasets** required to run the modeling pipeline.
+This allows the full modeling pipeline (training, validation, prediction, and risk computation) to be reproduced without requiring raw data preprocessing.
 
 # Installation
 Create a virtual environment and install dependencies:
